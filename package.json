@@ -2,6 +2,7 @@
   "name": "cl-teachable-machine-boilerplate",
   "version": "0.1.0",
   "license": "",
+  "main": "index.html",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@tensorflow-models/knn-classifier": "^0.2.2",
