@@ -18,7 +18,7 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "start": "budo main.js:dist/build.js",
+    "start": "budo dist/build.js",
     "build": "browserify main.js -o dist/build.js"
   },
   "pre-commit": [
