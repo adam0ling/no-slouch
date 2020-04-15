@@ -2,7 +2,6 @@
   "name": "cl-teachable-machine-boilerplate",
   "version": "0.1.0",
   "license": "",
-  "main": "index.html",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@tensorflow-models/knn-classifier": "^0.2.2",
@@ -19,7 +18,7 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "start": "budo main.js:dist/build.js --live --host localhost",
+    "start": "budo main.js:dist/build.js --live --host localhost --port 8080",
     "build": "browserify main.js -o dist/build.js"
   },
   "pre-commit": [
