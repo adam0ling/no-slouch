@@ -18,7 +18,7 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "start": "budo main.js:dist/build.js --live --host 0.0.0.0 --port 8080",
+    "start": "budo main.js:dist/build.js --live",
     "build": "browserify main.js -o dist/build.js"
   },
   "pre-commit": [
