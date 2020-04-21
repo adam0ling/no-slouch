@@ -12,7 +12,6 @@
   },
   "scripts": {
     "watch": "watchify main.js -v -o dist/build.js",
-    // "build": "browserify main.js -o dist/build.js",
     "start": "node server.js & npm run watch"
   },
   "pre-commit": [
