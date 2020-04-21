@@ -14,7 +14,8 @@
   "scripts": {
     "build": "browserify main.js -o dist/build.js",
     "watch": "watchify main.js -v -o dist/build.js",
-    "start": "node server.js & npm run watch"
+    "start": "node server.js & npm run watch",
+    "heroku-postbuild": "npm run build"
   },
   "pre-commit": [
     "build"
