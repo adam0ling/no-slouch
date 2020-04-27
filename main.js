@@ -17,6 +17,7 @@ import * as mobilenetModule from '@tensorflow-models/mobilenet';
 import * as tf from '@tensorflow/tfjs';
 import * as knnClassifier from '@tensorflow-models/knn-classifier';
 import { div } from "@tensorflow/tfjs";
+import {Howl, Howler} from 'howler';
 
 // Number of classes to classify
 const NUM_CLASSES = 2
@@ -36,6 +37,10 @@ class Main {
     this.training = -1; // -1 when no class is being trained
     this.timeCheck = -1;  // -1 when not clicked
     this.videoPlaying = false;
+    this.sound = new Howl({
+      src: ['./nein.mp3'],
+      volume: 0.5,
+    })  // creates sound var
 
     // Initiate deeplearn.js math and knn classifier objects
     this.bindPage();
@@ -71,10 +76,10 @@ class Main {
       const button = document.createElement('button')
       button.innerText = CLASS_NAMES[i];
       div.appendChild(button);
-      button.style.width='100px';
-      button.style.backgroundColor = 'white';
-      button.style.borderWidth = '1px';
-      button.style.borderColor = 'gray';
+      // button.style.width='100px';
+      // button.style.backgroundColor = 'white';
+      // button.style.borderWidth = '1px';
+      // button.style.borderColor = 'gray';
 
       // Listen for mouse events when clicking the button
       button.addEventListener('mousedown', () => this.training = i);
@@ -95,17 +100,17 @@ class Main {
     const timerBtn = document.createElement('button')
     timerBtn.innerText = 'Start me';
     timerDiv.appendChild(timerBtn);
-    timerBtn.style.width='100px';
+    // timerBtn.style.width='100px';
     timerBtn.style.backgroundColor = 'red';
-    timerBtn.style.color = 'white';
-    timerBtn.style.borderWidth = '1px';
-    timerBtn.style.borderColor = 'red';
+    // timerBtn.style.color = 'white';
+    // timerBtn.style.borderWidth = '1px';
+    // timerBtn.style.borderColor = 'red';
 
     // Listen for click to start timer
     timerBtn.addEventListener('click', () => this.timeCheck *= -1);
 
     const timeSpan = document.createElement('span')
-    timeSpan.innerText = "a";
+    timeSpan.innerText = "";
     timerDiv.appendChild(timeSpan);
     this.timerText.push(timeSpan);
 
@@ -188,7 +193,10 @@ class Main {
               const slouchScore = (this.slouchScores[0] - this.slouchScores[1])
               if (slouchScore > 100) {this.slouchScores = [100, 0]}  // resets slouch score
               if (slouchScore < 0) {this.slouchScores = [0, 0]}  // resets slouch score
-              this.timerText[0].innerText = `Score:  ${parseInt(slouchScore, 10)}`
+              if (slouchScore < 10) {
+                var newSound = this.sound.play()                           
+              }
+              this.timerText[0].innerText = `Score: ${parseInt(slouchScore, 10)}`
             }            
           }
         }

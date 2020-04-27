@@ -20,10 +20,13 @@
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.0.15",
-    "babelify": "^8.0.0"
+    "babelify": "^8.0.0",
+    "howler": "^2.1.3",
+    "milligram": "^1.3.0"
   },
   "scripts": {
     "build": "browserify main.js -o dist/build.js",
+    "check": "budo main.js:dist/build.js --live --host localhost",
     "watch": "watchify main.js -v -o dist/build.js",
     "start": "node server.js",
     "heroku-postbuild": "npm run build"
