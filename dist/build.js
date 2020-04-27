@@ -56,6 +56,10 @@ var Main = function () {
     this.training = -1; // -1 when no class is being trained
     this.timeCheck = -1; // -1 when not clicked
     this.videoPlaying = false;
+    this.sound = new _howler.Howl({
+      src: ['./nein.mp3'],
+      volume: 0.5
+    }); // creates sound var
 
     // Initiate deeplearn.js math and knn classifier objects
     this.bindPage();
@@ -91,10 +95,10 @@ var Main = function () {
       var button = document.createElement('button');
       button.innerText = CLASS_NAMES[i];
       div.appendChild(button);
-      button.style.width = '100px';
-      button.style.backgroundColor = 'white';
-      button.style.borderWidth = '1px';
-      button.style.borderColor = 'gray';
+      // button.style.width='100px';
+      // button.style.backgroundColor = 'white';
+      // button.style.borderWidth = '1px';
+      // button.style.borderColor = 'gray';
 
       // Listen for mouse events when clicking the button
       button.addEventListener('mousedown', function () {
@@ -123,11 +127,11 @@ var Main = function () {
     var timerBtn = document.createElement('button');
     timerBtn.innerText = 'Start me';
     timerDiv.appendChild(timerBtn);
-    timerBtn.style.width = '100px';
+    // timerBtn.style.width='100px';
     timerBtn.style.backgroundColor = 'red';
-    timerBtn.style.color = 'white';
-    timerBtn.style.borderWidth = '1px';
-    timerBtn.style.borderColor = 'red';
+    // timerBtn.style.color = 'white';
+    // timerBtn.style.borderWidth = '1px';
+    // timerBtn.style.borderColor = 'red';
 
     // Listen for click to start timer
     timerBtn.addEventListener('click', function () {
@@ -135,7 +139,7 @@ var Main = function () {
     });
 
     var timeSpan = document.createElement('span');
-    timeSpan.innerText = "a";
+    timeSpan.innerText = "";
     timerDiv.appendChild(timeSpan);
     this.timerText.push(timeSpan);
 
@@ -200,7 +204,7 @@ var Main = function () {
     value: function animate() {
       var _this2 = this;
 
-      var image, logits, infer, numClasses, res, i, exampleCount, slouchScore, sound, soundId;
+      var image, logits, infer, numClasses, res, i, exampleCount, slouchScore, newSound;
       return regeneratorRuntime.async(function animate$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -265,7 +269,6 @@ var Main = function () {
                     this.slouchScores[i] += res.confidences[i]; // keep track of slouch score
                     // Couldn't make it work anywhere else
                     slouchScore = this.slouchScores[0] - this.slouchScores[1];
-                    sound = new _howler.Howl({ src: ['./nein.mp3'] });
 
                     if (slouchScore > 100) {
                       this.slouchScores = [100, 0];
@@ -273,10 +276,10 @@ var Main = function () {
                     if (slouchScore < 0) {
                       this.slouchScores = [0, 0];
                     } // resets slouch score
-                    if (slouchScore < 10 && sound.playing(soundId) == false) {
-                      soundId = sound.play();
+                    if (slouchScore < 10) {
+                      newSound = this.sound.play();
                     }
-                    this.timerText[0].innerText = 'Score:  ' + parseInt(slouchScore, 10);
+                    this.timerText[0].innerText = 'Score: ' + parseInt(slouchScore, 10);
                   }
                 }
               }
