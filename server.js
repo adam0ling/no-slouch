@@ -7,5 +7,7 @@ app.get('/', function(req, res){
   res.render('index.html');
 });
 
-app.listen(80);
-console.log('Listening on port 80');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
