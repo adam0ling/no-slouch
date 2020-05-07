@@ -32,7 +32,8 @@ Changes made to the boilerplate:
 ```
 async animate()
 ``` 
-in ./main.js for that. 
+in ./main.js for that.
+
 6. As for the design I'm quite bad with front end and just used some formating calls on buttons and Divs themselves and miligram CSS framework. Check my index.html and https://milligram.io/ for more info. 
 7. That's pretty much it. You should have a nicely working deeplearning application which you can now deploy to the interwebs.
 
@@ -52,6 +53,7 @@ const PORT = process.env.PORT || 3000;
 node server.js
 ``` 
 in your application directory.
+
 4. If that works - great! There's just a couple of changes we need to do to the package.json file now. In scripts section of code you need to:
 * change this line: 
 ```
