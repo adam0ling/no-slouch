@@ -48,13 +48,17 @@ So you have your app working and looking as you want it to look. Great. To deplo
 ```
 const PORT = process.env.PORT || 3000;
 ```
-3. When you have your server.js sorted out check if it works by running 
+3. You need to install additional package called express and add it to dependencies in package.json for the server.js to work. You can do that by:
+```
+npm install express
+```
+4. When you have your server.js sorted out check if it works by running 
 ```
 node server.js
 ``` 
 in your application directory.
 
-4. If that works - great! There's just a couple of changes we need to do to the package.json file now. In scripts section of code you need to:
+5. If that works - great! There's just a couple of changes we need to do to the package.json file now. In scripts section of code you need to:
 * change this line: 
 ```
 "start": "budo main.js:dist/build.js --live --host localhost",
@@ -67,7 +71,7 @@ with this
 ```
 "heroku-postbuild": "npm run build"
 ```
-5. You are pretty much done. All you need to do now is head to https://heroku.com/ and deploy your appliaction. There are two main ways to do it. Either with heroku cli or using github connection. If you want a fast and easy way use gihub connection and just make a repository for you app and deploy that.
+6. You are pretty much done. All you need to do now is head to https://heroku.com/ and deploy your appliaction. There are two main ways to do it. Either with heroku cli or using github connection. If you want a fast and easy way use gihub connection and just make a repository for you app and deploy that.
 
 !!! IMPORTANT !!! Your repository should not contain node_modules directory but should have package-lock.json
 
