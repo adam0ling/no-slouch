@@ -67,7 +67,7 @@ with this
 ```
 "heroku-postbuild": "npm run build"
 ```
-5. You are pretty much done. All you need to do now is head to https://heroku.com/ and deploy your appliaction. There are two main waays to do it. Either with heroku cli or using github connection. If you want a fast and easy way use gihub connection and just make a repository for you app and deploy that.
+5. You are pretty much done. All you need to do now is head to https://heroku.com/ and deploy your appliaction. There are two main ways to do it. Either with heroku cli or using github connection. If you want a fast and easy way use gihub connection and just make a repository for you app and deploy that.
 
 !!! IMPORTANT !!! Your repository should not contain node_modules directory but should have package-lock.json
 
