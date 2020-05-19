@@ -26,7 +26,7 @@ Changes made to the boilerplate:
 
 1. Decide how many classes you want. Should the number be flexible or not. 
 2. Decide on any additional features you want to add. Like sound notification, score calculator or anything else.
-3. Clone boilerplate repository.
+3. Clone boilerplate repository: https://github.com/googlecreativelab/teachable-machine-boilerplate
 4. In ./main.js Fix the number of classes first and test out your application. Follow the instructions in the boiler plate repo to run it. 
 5. Check how your additional features should be implemented. If they should be called when reaching a specific score or when some class is guessed check 
 ```
@@ -48,7 +48,7 @@ So you have your app working and looking as you want it to look. Great. To deplo
 ```
 const PORT = process.env.PORT || 3000;
 ```
-3. When you have your serves.js sorted out check if it works by running 
+3. When you have your server.js sorted out check if it works by running 
 ```
 node server.js
 ``` 
